@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+const webPort = "8080"
+
 type Config struct{}
 
 func main() {
@@ -13,12 +15,11 @@ func main() {
 
 	// Create server
 	srv := &http.Server{
-		Addr:    ":80",
+		Addr:    fmt.Sprintf(":%s", webPort),
 		Handler: app.routes(),
 	}
-
 	// Start server
-	fmt.Printf("** Listening on port 80 **")
+	fmt.Printf("** Listening on port %s **\n", webPort)
 	err := srv.ListenAndServe()
 	if err != nil {
 		log.Panic(err)
