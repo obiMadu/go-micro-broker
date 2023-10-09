@@ -24,5 +24,8 @@ func (app *Config) routes() http.Handler {
 	// Define health check
 	mux.Use(middleware.Heartbeat("/health"))
 
+	// Routes
+	mux.Post("/", app.Broker)
+
 	return mux
 }
