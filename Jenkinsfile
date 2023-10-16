@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'hry'
         echo 'yooo'
+        echo 'fork'
       }
     }
 
